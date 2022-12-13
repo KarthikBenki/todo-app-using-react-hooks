@@ -57,18 +57,17 @@ const Todo = () => {
             {todoList.map((element, ind) => {
               return (
                 <div className="todo-display-list" key={ind}>
-                  <h3>
+                  <h3 className="todo-text">
                     {element}{" "}
-                    <button onClick={() => deleteItem(ind)}>Delete</button>
-                  </h3>
+                  </h3><button className="delete-button" onClick={() => deleteItem(ind)}>Delete</button>
                 </div>
               );
             })}
           </div>
 
-          <div className="remove-all">
-            <button onClick={removeAll}>Remove All</button>
-          </div>
+          {todoList.length>=2  && <div className="remove-all">
+            <button className="remove-button" onClick={removeAll}>Remove All</button>
+          </div>}
         </div>
       </div>
     </>
