@@ -3,11 +3,11 @@ import "./Todo.css";
 import todoImg from "../../images/todo-image.jpeg";
 
 const Todo = () => {
-  const [inputData, setInputData] = useState(()=>{
-    return ""
+  const [inputData, setInputData] = useState(() => {
+    return "";
   });
-  const [todoList, setTodoList] = useState(()=>{
-    return []
+  const [todoList, setTodoList] = useState(() => {
+    return [];
   });
 
   const handleChange = (e) => {
@@ -16,9 +16,9 @@ const Todo = () => {
 
   const addTodo = () => {
     if (!inputData) return;
-    setTodoList((prevList)=>{
-      
-     return [...prevList, inputData]});
+    setTodoList((prevList) => {
+      return [...prevList, inputData];
+    });
     setInputData("");
   };
 
@@ -57,17 +57,25 @@ const Todo = () => {
             {todoList.map((element, ind) => {
               return (
                 <div className="todo-display-list" key={ind}>
-                  <h3 className="todo-text">
-                    {element}{" "}
-                  </h3><button className="delete-button" onClick={() => deleteItem(ind)}>Delete</button>
+                  <h3 className="todo-text">{element} </h3>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteItem(ind)}
+                  >
+                    Delete
+                  </button>
                 </div>
               );
             })}
           </div>
 
-          {todoList.length>=2  && <div className="remove-all">
-            <button className="remove-button" onClick={removeAll}>Remove All</button>
-          </div>}
+          {todoList.length >= 2 && (
+            <div className="remove-all">
+              <button className="remove-button" onClick={removeAll}>
+                Remove All
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>
