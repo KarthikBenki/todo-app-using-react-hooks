@@ -3,8 +3,12 @@ import "./Todo.css";
 import todoImg from "../../images/todo-image.jpeg";
 
 const Todo = () => {
-  const [inputData, setInputData] = useState("");
-  const [todoList, setTodoList] = useState([]);
+  const [inputData, setInputData] = useState(()=>{
+    return ""
+  });
+  const [todoList, setTodoList] = useState(()=>{
+    return []
+  });
 
   const handleChange = (e) => {
     setInputData(e.target.value);
@@ -12,7 +16,9 @@ const Todo = () => {
 
   const addTodo = () => {
     if (!inputData) return;
-    setTodoList([...todoList, inputData]);
+    setTodoList((prevList)=>{
+      
+     return [...prevList, inputData]});
     setInputData("");
   };
 
