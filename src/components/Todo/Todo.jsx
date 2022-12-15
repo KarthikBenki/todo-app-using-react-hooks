@@ -39,7 +39,7 @@ const Todo = () => {
       <div className="main-container">
         <div className="todo-container">
           <div className="todo-image">
-            <img src={todoImg} alt="" />
+            <img className="logo-image" src={todoImg} alt="" />
           </div>
           <div className="todo-input">
             <input
@@ -47,9 +47,10 @@ const Todo = () => {
               placeholder="Enter Todos..."
               value={inputData}
               onChange={handleChange}
+              className="todo-text"
             />
             <button className="add-todo-button" onClick={addTodo}>
-              Add Todo
+              <b> Add Todo</b>
             </button>
           </div>
 
